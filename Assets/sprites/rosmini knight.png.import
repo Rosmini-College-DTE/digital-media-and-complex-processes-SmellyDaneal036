@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blwcs5dltp3q"
-path="res://.godot/imported/knight.png-f2df08b890c4ea830c735d8e0f73a8e2.ctex"
+uid="uid://3e31wwqcw7to"
+path="res://.godot/imported/rosmini knight.png-4ea7d84b196510cc892824a2866ca996.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/knight.png"
-dest_files=["res://.godot/imported/knight.png-f2df08b890c4ea830c735d8e0f73a8e2.ctex"]
+source_file="res://Assets/sprites/rosmini knight.png"
+dest_files=["res://.godot/imported/rosmini knight.png-4ea7d84b196510cc892824a2866ca996.ctex"]
 
 [params]
 
