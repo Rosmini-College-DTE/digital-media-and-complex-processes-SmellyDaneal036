@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0pibx4ny3vee"]
+
+[ext_resource type="Texture2D" uid="uid://7a2tbbxb1ey1" path="res://Assets/sprites/backgorund.jpg" id="1_i6or2"]
+[ext_resource type="Script" path="res://Scenes/Menu/Background.gd" id="2_rp6j8"]
+
+[node name="Main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Node2D"]
+position = Vector2(576, 332)
+scale = Vector2(0.636719, 0.685484)
+texture = ExtResource("1_i6or2")
+script = ExtResource("2_rp6j8")
