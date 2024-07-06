@@ -1,7 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0pibx4ny3vee"]
+[gd_scene load_steps=8 format=3 uid="uid://b0pibx4ny3vee"]
 
-[ext_resource type="Texture2D" uid="uid://7a2tbbxb1ey1" path="res://Assets/sprites/backgorund.jpg" id="1_i6or2"]
+[ext_resource type="Script" path="res://Scenes/Menu/main_menu.gd" id="1_xi6rb"]
+[ext_resource type="Texture2D" uid="uid://ctnqpwkvdtc4f" path="res://Assets/sprites/pixil-frame-0 (1).png" id="2_cnk0j"]
 [ext_resource type="Script" path="res://Scenes/Menu/Background.gd" id="2_rp6j8"]
+[ext_resource type="FontFile" uid="uid://d21r8j6guywxe" path="res://Assets/fonts/ThaleahFat.ttf" id="3_46vy0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8itj"]
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 4
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5vr7"]
+bg_color = Color(0.376471, 0.564706, 0.87451, 1)
+border_width_bottom = 5
+border_color = Color(0.20371, 0.381471, 0.675686, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="Theme" id="Theme_dylve"]
+Button/styles/hover = SubResource("StyleBoxFlat_v8itj")
+Button/styles/normal = SubResource("StyleBoxFlat_n5vr7")
 
 [node name="Main_menu" type="Control"]
 layout_mode = 3
@@ -10,11 +34,78 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_dylve")
+script = ExtResource("1_xi6rb")
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="Node2D"]
-position = Vector2(576, 332)
-scale = Vector2(0.636719, 0.685484)
-texture = ExtResource("1_i6or2")
+position = Vector2(29.4921, -85.2047)
+scale = Vector2(1.42837, 1.5932)
+texture = ExtResource("2_cnk0j")
+centered = false
+offset = Vector2(-161.565, -75.61)
 script = ExtResource("2_rp6j8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = -229.0
+offset_right = 181.0
+offset_bottom = -49.0
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_46vy0")
+theme_override_font_sizes/font_size = 30
+text = "Start"
+
+[node name="ControlsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_46vy0")
+theme_override_font_sizes/font_size = 30
+text = "Controls"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_46vy0")
+theme_override_font_sizes/font_size = 30
+text = "Quit
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 177.0
+offset_top = -254.0
+offset_right = 177.0
+offset_bottom = -254.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = ExtResource("3_46vy0")
+theme_override_font_sizes/font_size = 80
+text = "antonio's adventures"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

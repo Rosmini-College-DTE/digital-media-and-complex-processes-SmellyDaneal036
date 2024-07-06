@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5cm2hmk1ipha"]
+
+[ext_resource type="Script" path="res://Scenes/Menu/options_menu.gd" id="1_clm28"]
+[ext_resource type="Texture2D" uid="uid://dv44t3nlri8jn" path="res://Assets/sprites/Summer8.png" id="2_i74ww"]
+[ext_resource type="FontFile" uid="uid://ci65476r6vcnk" path="res://Assets/fonts/PixelOperator8.ttf" id="4_36aop"]
+[ext_resource type="FontFile" uid="uid://d21r8j6guywxe" path="res://Assets/fonts/ThaleahFat.ttf" id="4_pjcr8"]
+
+[node name="options_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_clm28")
+
+[node name="Summer8" type="Sprite2D" parent="."]
+position = Vector2(583, 345)
+scale = Vector2(0.591049, 0.591049)
+texture = ExtResource("2_i74ww")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 12
+theme_override_fonts/font = ExtResource("4_pjcr8")
+theme_override_font_sizes/font_size = 60
+text = "controls"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("4_36aop")
+text = "Forward : D
+
+Back: A
+
+Jump: W
+
+Attack: M1
+"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 21.215
+offset_top = -66.47
+offset_right = 98.215
+offset_bottom = -16.47
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Back
+"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

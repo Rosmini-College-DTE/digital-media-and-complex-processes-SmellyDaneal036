@@ -1,0 +1,114 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsxuoe7gnlttf"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_17n07"]
+[ext_resource type="Texture2D" uid="uid://7a2tbbxb1ey1" path="res://Assets/sprites/backgorund.jpg" id="1_ucc4p"]
+[ext_resource type="Script" path="res://Sprite2D.gd" id="2_ixmgr"]
+[ext_resource type="FontFile" uid="uid://d21r8j6guywxe" path="res://Assets/fonts/ThaleahFat.ttf" id="3_qdo50"]
+
+[node name="Main menu" type="Control"]
+layout_mode = 3
+anchor_left = 0.059
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.968
+offset_top = -68.8
+offset_right = 360.0
+offset_bottom = 377.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_17n07")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(36.0132, 194.766)
+scale = Vector2(0.976941, 0.976942)
+texture = ExtResource("1_ucc4p")
+offset = Vector2(548.38, 300)
+script = ExtResource("2_ixmgr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 92.0
+offset_top = 204.0
+offset_right = 92.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -59.0
+offset_right = -60.0
+offset_bottom = -546.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_qdo50")
+theme_override_font_sizes/font_size = 80
+text = "Antonio's Adventures"
+vertical_alignment = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Seperator3" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Start button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(-5, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qdo50")
+theme_override_font_sizes/font_size = 30
+text = "Start
+"
+
+[node name="Seperator2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Controls button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(-5, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qdo50")
+theme_override_font_sizes/font_size = 30
+text = "Controls"
+
+[node name="Seperator4" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Quit button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(-5, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qdo50")
+theme_override_font_sizes/font_size = 30
+text = "Quit
+"
