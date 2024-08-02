@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cx5h3rnqv8e3r"]
+[gd_scene load_steps=27 format=3 uid="uid://cx5h3rnqv8e3r"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_6doxp"]
 [ext_resource type="Texture2D" uid="uid://3e31wwqcw7to" path="res://Assets/sprites/rosmini knight.png" id="2_00fhq"]
@@ -171,6 +171,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_r6xoo"]
 radius = 5.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pevqh"]
+
 [node name="player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
@@ -179,9 +181,21 @@ script = ExtResource("1_6doxp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_t3qca")
-animation = &"Jump"
+animation = &"Run"
 autoplay = "idle"
+frame = 15
+frame_progress = 0.254723
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_r6xoo")
+
+[node name="Direction" type="Marker2D" parent="."]
+
+[node name="ActionableFinder" type="Area2D" parent="Direction"]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder"]
+position = Vector2(11, -5)
+shape = SubResource("CircleShape2D_pevqh")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d1is7p5l658ir"]
+[gd_scene load_steps=21 format=3 uid="uid://d1is7p5l658ir"]
 
 [ext_resource type="PackedScene" uid="uid://cx5h3rnqv8e3r" path="res://Scenes/player.tscn" id="1_ibrab"]
 [ext_resource type="Texture2D" uid="uid://c1jj25mei1hgt" path="res://Assets/sprites/world_tileset.png" id="2_4mam0"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dnuvqdfcefvyq" path="res://slime.tscn" id="6_inkjh"]
 [ext_resource type="AudioStream" uid="uid://qnahjo7lch33" path="res://Untitled song.mp3" id="7_itpsi"]
 [ext_resource type="Texture2D" uid="uid://ds1sppmryqh53" path="res://Assets/sprites/pixil-frame-0.png" id="8_ht7lx"]
+[ext_resource type="PackedScene" uid="uid://tknmlo0plmxa" path="res://actionable.tscn" id="9_ubw0e"]
+[ext_resource type="Resource" uid="uid://dl5egok81vdjs" path="res://main .dialogue" id="10_irona"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8iwb"]
 texture = ExtResource("2_4mam0")
@@ -496,6 +498,9 @@ _data = {
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1sdyc"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sg0ix"]
+radius = 16.0
+
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -580,13 +585,21 @@ stream = ExtResource("7_itpsi")
 autoplay = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(91, 37)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(105, 54)
+position = Vector2(27, 17)
 texture = ExtResource("8_ht7lx")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 31, 36)
+
+[node name="Actionable" parent="StaticBody2D" instance=ExtResource("9_ubw0e")]
+dialogue_resource = ExtResource("10_irona")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Actionable"]
+position = Vector2(27, 20)
+shape = SubResource("CircleShape2D_sg0ix")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(1810, 20)

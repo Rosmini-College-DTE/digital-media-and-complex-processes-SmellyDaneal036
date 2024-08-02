@@ -8,6 +8,8 @@ const JUMP_VELOCITY = -300.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var actionable_finder: Area2D = $Direction/ActionableFinder
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -21,8 +23,10 @@ func _physics_process(delta):
 	# Get the input direction: -1, 0, 1
 	var direction = Input.get_axis("Move.L", "Move.R")
 	if Input.is_action_just_pressed("ui_accept"):
-		DialogueManager.show_example_dialogue_balloon(load("res://main .dialogue"), "start")
-		return
+		var actionables = actionable_finder.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()
+			return
 	
 	# Flip the Sprite 
 	if direction > 0:
