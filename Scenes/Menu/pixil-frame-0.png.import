@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1jj25mei1hgt"
-path="res://.godot/imported/world_tileset.png-7d0351459d02dec97d7c98fe9a06c85b.ctex"
+uid="uid://cubqb6hl51d6n"
+path="res://.godot/imported/pixil-frame-0.png-2f176da02e61424b7668deb8d361c5fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/world_tileset.png"
-dest_files=["res://.godot/imported/world_tileset.png-7d0351459d02dec97d7c98fe9a06c85b.ctex"]
+source_file="res://Scenes/Menu/pixil-frame-0.png"
+dest_files=["res://.godot/imported/pixil-frame-0.png-2f176da02e61424b7668deb8d361c5fb.ctex"]
 
 [params]
 

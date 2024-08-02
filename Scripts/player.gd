@@ -20,6 +20,9 @@ func _physics_process(delta):
 
 	# Get the input direction: -1, 0, 1
 	var direction = Input.get_axis("Move.L", "Move.R")
+	if Input.is_action_just_pressed("ui_accept"):
+		DialogueManager.show_example_dialogue_balloon(load("res://main .dialogue"), "start")
+		return
 	
 	# Flip the Sprite 
 	if direction > 0:
