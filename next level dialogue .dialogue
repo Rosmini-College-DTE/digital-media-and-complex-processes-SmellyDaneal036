@@ -1,0 +1,32 @@
+~ start
+
+Kevon Vinush: I see you have safey made it across, have you got the key?
+if apple_status == "has":
+	Antonio: I have the key.
+	- Give to Kevon
+		set apple_status = "gave"
+		Antonio: Here you go.
+		Kevon: Alright here we go.
+	- Keep it
+		Antonio: Nah, I wanna keep it, it looks cool.
+		Kevon Vinush: Fine then, stay here for all I care.
+if apple_status == "gave":
+	do wait(2)
+	do Globals.on_switch_scene()
+
+
+else:
+	Kevon Vinush: You need to bring me the key so you can continue through and save the children.
+
+=> END
+
+
+~ pick_key
+
+Antonio: Its the glass bottle.
+Antonio: And its got the key inside just like he said.
+set apple_status = "has"
+
+=> END
+
+~ SceneTransition

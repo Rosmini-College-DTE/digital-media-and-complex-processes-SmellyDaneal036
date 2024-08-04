@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqa5tt14vrr6u"]
+
+[ext_resource type="Texture2D" uid="uid://7a2tbbxb1ey1" path="res://Assets/sprites/backgorund.jpg" id="1_li80t"]
+
+[node name="Level 2" type="Node2D"]
+
+[node name="Backgorund" type="Sprite2D" parent="."]
+position = Vector2(597, 289)
+texture = ExtResource("1_li80t")

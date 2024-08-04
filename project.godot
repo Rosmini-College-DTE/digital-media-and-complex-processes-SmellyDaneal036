@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 State="*res://state.gd"
+Globals="*res://globals.gd"
+
+[dialogue_manager]
+
+general/states=["State"]
 
 [display]
 
@@ -49,7 +54,7 @@ Move.R={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue .dialogue", "res://main .dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue .dialogue", "res://main .dialogue", "res://next level dialogue .dialogue")
 
 [layer_names]
 

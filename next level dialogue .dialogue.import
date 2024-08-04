@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bhoqi4j651hf1"
+path="res://.godot/imported/next level dialogue .dialogue-c1a1d0339140e881c70f4642c78097f2.tres"
+
+[deps]
+
+source_file="res://next level dialogue .dialogue"
+dest_files=["res://.godot/imported/next level dialogue .dialogue-c1a1d0339140e881c70f4642c78097f2.tres"]
+
+[params]
+
+defaults=true

@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://cx5h3rnqv8e3r"]
+[gd_scene load_steps=28 format=3 uid="uid://cx5h3rnqv8e3r"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_6doxp"]
 [ext_resource type="Texture2D" uid="uid://3e31wwqcw7to" path="res://Assets/sprites/rosmini knight.png" id="2_00fhq"]
+[ext_resource type="AudioStream" uid="uid://25873tcqgkdd" path="res://Assets/sounds/jump.wav" id="3_7862d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2a7cs"]
 atlas = ExtResource("2_00fhq")
@@ -199,3 +200,7 @@ collision_mask = 512
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder"]
 position = Vector2(11, -5)
 shape = SubResource("CircleShape2D_pevqh")
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7862d")
+volume_db = 1.078
