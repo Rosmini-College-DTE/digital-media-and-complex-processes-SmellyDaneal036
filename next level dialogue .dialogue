@@ -10,16 +10,13 @@ if apple_status == "has":
 	- Keep it
 		Antonio: Nah, I wanna keep it, it looks cool.
 		Kevon Vinush: Fine then, stay here for all I care.
-if apple_status == "gave":
+elif apple_status == "gave":
 	do wait(2)
-	do Globals.on_switch_scene()
-
+	do Globals.on_switch_scene_to_file("res://level_2.tscn")
 
 else:
 	Kevon Vinush: You need to bring me the key so you can continue through and save the children.
-
 => END
-
 
 ~ pick_key
 
@@ -29,4 +26,4 @@ set apple_status = "has"
 
 => END
 
-~ SceneTransition
+

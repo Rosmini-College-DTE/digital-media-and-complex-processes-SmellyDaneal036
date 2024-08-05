@@ -7,11 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://davf8e4tcla2t" path="res://Scenes/killzone.tscn" id="5_vsfan"]
 [ext_resource type="PackedScene" uid="uid://dnuvqdfcefvyq" path="res://slime.tscn" id="6_inkjh"]
 [ext_resource type="AudioStream" uid="uid://qnahjo7lch33" path="res://Untitled song.mp3" id="7_itpsi"]
-[ext_resource type="Texture2D" uid="uid://ds1sppmryqh53" path="res://Assets/sprites/pixil-frame-0.png" id="8_ht7lx"]
-[ext_resource type="PackedScene" uid="uid://tknmlo0plmxa" path="res://actionable.tscn" id="9_ubw0e"]
-[ext_resource type="Resource" uid="uid://dl5egok81vdjs" path="res://main .dialogue" id="10_irona"]
-[ext_resource type="PackedScene" uid="uid://dr87eb82tqbb5" path="res://Scenes/coin.tscn" id="11_au0be"]
-[ext_resource type="Script" path="res://Scenes/Area2D.gd" id="12_gah8p"]
+[ext_resource type="Texture2D" uid="uid://ds1sppmryqh53" path="res://Assets/sprites/pixil-frame-0.png" id="8_bnfnu"]
+[ext_resource type="PackedScene" uid="uid://0x48ijfjuo2" path="res://Scripts/actionable.tscn" id="9_vntj5"]
+[ext_resource type="Resource" uid="uid://dl5egok81vdjs" path="res://main .dialogue" id="10_yl0yg"]
+[ext_resource type="Resource" uid="uid://bhoqi4j651hf1" path="res://next level dialogue .dialogue" id="11_6jkc2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8iwb"]
 texture = ExtResource("2_4mam0")
@@ -500,11 +499,13 @@ _data = {
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1sdyc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sg0ix"]
-radius = 16.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_6pffe"]
+radius = 14.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kllmk"]
-size = Vector2(65, 49)
+[sub_resource type="CircleShape2D" id="CircleShape2D_jir3p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a8fq4"]
+radius = 13.0384
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_lsx57")
@@ -565,51 +566,46 @@ stream = ExtResource("7_itpsi")
 volume_db = -20.905
 autoplay = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(91, 37)
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(27, 17)
-texture = ExtResource("8_ht7lx")
+[node name="Knight" type="Sprite2D" parent="."]
+position = Vector2(103, 53)
+texture = ExtResource("8_bnfnu")
 flip_h = true
 region_enabled = true
-region_rect = Rect2(0, 0, 31, 36)
+region_rect = Rect2(9, 9, 13, 19)
 
-[node name="Actionable" parent="StaticBody2D" instance=ExtResource("9_ubw0e")]
-dialogue_resource = ExtResource("10_irona")
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(103, 55)
+
+[node name="Actionable" parent="StaticBody2D" instance=ExtResource("9_vntj5")]
+position = Vector2(-3, 1)
+dialogue_resource = ExtResource("10_yl0yg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Actionable"]
-position = Vector2(27, 20)
-shape = SubResource("CircleShape2D_sg0ix")
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_6pffe")
 
-[node name="Coin" parent="." instance=ExtResource("11_au0be")]
-position = Vector2(173, 57)
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1112, -38)
 
-[node name="Coin2" parent="." instance=ExtResource("11_au0be")]
-position = Vector2(521, 23)
+[node name="Actionable" parent="StaticBody2D2" instance=ExtResource("9_vntj5")]
+dialogue_resource = ExtResource("11_6jkc2")
+dialogue_start = "pick_key"
 
-[node name="Coin3" parent="." instance=ExtResource("11_au0be")]
-position = Vector2(649, 23)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/Actionable"]
+shape = SubResource("CircleShape2D_jir3p")
 
-[node name="Coin4" parent="." instance=ExtResource("11_au0be")]
-position = Vector2(968, -9)
+[node name="Pixil-frame-0" type="Sprite2D" parent="."]
+position = Vector2(1719, -90)
+texture = ExtResource("8_bnfnu")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(32, 9, 13, 19)
 
-[node name="Coin5" parent="." instance=ExtResource("11_au0be")]
-position = Vector2(1193, -55)
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1720, -88)
 
-[node name="Coin6" parent="." instance=ExtResource("11_au0be")]
-position = Vector2(1464, -58)
+[node name="Actionable" parent="StaticBody2D3" instance=ExtResource("9_vntj5")]
+dialogue_resource = ExtResource("11_6jkc2")
 
-[node name="Coin7" parent="." instance=ExtResource("11_au0be")]
-position = Vector2(1721, -88)
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1760, -93)
-script = ExtResource("12_gah8p")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.5, -11.5)
-shape = SubResource("RectangleShape2D_kllmk")
-
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3/Actionable"]
+shape = SubResource("CircleShape2D_a8fq4")
