@@ -12,7 +12,7 @@ if apple_status == "has":
 		Kevon Vinush: Fine then, stay here for all I care.
 elif apple_status == "gave":
 	do wait(2)
-	do Globals.on_switch_scene_to_file("res://level_2.tscn")
+	set blobals.gave = true
 
 else:
 	Kevon Vinush: You need to bring me the key so you can continue through and save the children.
