@@ -14,8 +14,8 @@ func _ready():
 	given = blobals.gave
 
 func _physics_process(delta):
-	print("given: ", given)
-	print("blobals.gave: ", blobals.gave)
+	#print("given: ", given)
+	#print("blobals.gave: ", blobals.gave)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
