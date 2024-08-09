@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d1is7p5l658ir"]
+[gd_scene load_steps=25 format=3 uid="uid://d1is7p5l658ir"]
 
 [ext_resource type="PackedScene" uid="uid://cx5h3rnqv8e3r" path="res://Scenes/player.tscn" id="1_ibrab"]
 [ext_resource type="Script" path="res://Scenes/Globals.gd" id="1_lsx57"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://0x48ijfjuo2" path="res://Scripts/actionable.tscn" id="9_vntj5"]
 [ext_resource type="Resource" uid="uid://dl5egok81vdjs" path="res://main .dialogue" id="10_yl0yg"]
 [ext_resource type="Resource" uid="uid://bhoqi4j651hf1" path="res://next level dialogue .dialogue" id="11_6jkc2"]
-[ext_resource type="PackedScene" uid="uid://btc08rsu2d3do" path="res://portal.tscn" id="12_52l4e"]
+[ext_resource type="PackedScene" uid="uid://dr87eb82tqbb5" path="res://Scenes/coin.tscn" id="12_ki2uu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8iwb"]
 texture = ExtResource("2_4mam0")
@@ -503,8 +503,6 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_6pffe"]
 radius = 14.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jir3p"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_a8fq4"]
 radius = 13.0384
 
@@ -524,7 +522,7 @@ layer_1/tile_data = PackedInt32Array(327674, 458752, 1, 327675, 458752, 1, 32767
 
 [node name="player" parent="." instance=ExtResource("1_ibrab")]
 z_index = 0
-position = Vector2(1675, -110)
+position = Vector2(-26, 46)
 collision_layer = 3
 metadata/_edit_group_ = true
 
@@ -591,25 +589,15 @@ dialogue_resource = ExtResource("10_yl0yg")
 position = Vector2(3, 0)
 shape = SubResource("CircleShape2D_6pffe")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(1112, -38)
-
-[node name="Actionable" parent="StaticBody2D2" instance=ExtResource("9_vntj5")]
-dialogue_resource = ExtResource("11_6jkc2")
-dialogue_start = "pick_key"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/Actionable"]
-shape = SubResource("CircleShape2D_jir3p")
-
 [node name="Pixil-frame-0" type="Sprite2D" parent="."]
-position = Vector2(1686.5, -28.5)
+position = Vector2(1691.5, -408.5)
 texture = ExtResource("8_bnfnu")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(32, 9, 13, 19)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(1687.5, -26.5)
+position = Vector2(1692.5, -406.5)
 
 [node name="Actionable" parent="StaticBody2D3" instance=ExtResource("9_vntj5")]
 dialogue_resource = ExtResource("11_6jkc2")
@@ -624,7 +612,19 @@ position = Vector2(1755, -118)
 position = Vector2(5, 11)
 shape = SubResource("RectangleShape2D_2ie56")
 
-[node name="Portal" parent="." instance=ExtResource("12_52l4e")]
-position = Vector2(1818, -109)
+[node name="Coin" parent="." instance=ExtResource("12_ki2uu")]
+position = Vector2(519, 20)
+
+[node name="Coin2" parent="." instance=ExtResource("12_ki2uu")]
+position = Vector2(1464, -62)
+
+[node name="Coin3" parent="." instance=ExtResource("12_ki2uu")]
+position = Vector2(1329, -63)
+
+[node name="Coin4" parent="." instance=ExtResource("12_ki2uu")]
+position = Vector2(966, -12)
+
+[node name="Coin5" parent="." instance=ExtResource("12_ki2uu")]
+position = Vector2(1689, -93)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
